@@ -8,8 +8,31 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
 ```{r}
-summary(cars)
+install.packages("dplyr")
+library(dplyr)
 ```
+
+
+
+```{r read-in-data}
+gap.in<- read.table("output/combined_gapMinder.tsv", sep="\t", header=TRUE)
+
+summary(gap.in)
+
+gap.in %>% 
+  #the pipe command in R is %>%, piping the gap.in into select function
+  select(pop, country, year, continent) %>%
+  filter(year == 2002) %>%
+  group_by(continent) %>%
+  summarise(mean = mean(pop))
+
+#this is faster than in built in R because it uses C++
+
+```
+
+
+```
+
 
 You can also embed plots, for example:
 
