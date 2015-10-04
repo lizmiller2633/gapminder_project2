@@ -12,6 +12,13 @@ Australia, Argentina, and United States- ECM
 aus<- subset(gap.in, gap.in$country == "Australia" | gap.in$country =="United States" | gap.in$country =="Argentina")
 
 ```{r}
+#reading in gap.in file (global)
+gap.in<- read.table("output/combined_gapMinder.tsv", sep="\t", header=TRUE)
+
+#Subsetting three countries for graphs
+
+aus<- subset(gap.in, gap.in$country == "Australia" | gap.in$country =="United States" | gap.in$country =="Argentina")
+
 #Graph for Argentina
 plot(x = aus[1:12,2],
      y = aus[1:12,6],
@@ -66,12 +73,8 @@ hist(gap.in$lifeExp, breaks=30, main="Histogram of Global Life Expectancy", xlab
 
 ```
 
-# Commit your changes and push them to github.
-# Compile the final Rmd file to html, make sure it looks ok, and then commit this html file as well (should be in your working directory) and push everything to github.
+8) Commit your changes and push them to github.
+done-ECM
 
+9) Compile the final Rmd file to html, make sure it looks ok, and then commit this html file as well (should be in your working directory) and push everything to github.
 
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
